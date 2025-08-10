@@ -25,7 +25,7 @@ func makeISOCurrencyDefinitionFile(at destinationURL: URL, from source: [Currenc
   
   \(typeDefinitions)
   
-  extension CurrencyMint {
+  public extension CurrencyMint {
     public static var allIdentifiers: [String] {
       return \(source.map { $0.identifiers.alphabetic })
     }
