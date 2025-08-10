@@ -24,6 +24,12 @@ func makeISOCurrencyDefinitionFile(at destinationURL: URL, from source: [Currenc
   import struct Foundation.Decimal
   
   \(typeDefinitions)
+  
+  extension CurrencyMint {
+    public static var allIdentifiers: [String] {
+      return \(source.map { $0.identifiers.alphabetic })
+    }
+  }
   """
 
   try fileContent.write(to: destinationURL, atomically: true, encoding: .utf8)
